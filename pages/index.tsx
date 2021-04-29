@@ -7,7 +7,7 @@ export default function Home() {
   useEffect(() => {
     axios
       .post(
-        `http://api.openweathermap.org/data/2.5/weather?q=tokyo&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_MAP_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=tokyo&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_MAP_API_KEY}`
       )
       .then((response: any) => {
         console.log("response: ", response.data.weather[0]["id"]);
