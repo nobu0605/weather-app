@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from "../styles/pages/local-weather.module.scss";
 import Header from "../components/Header";
 
-export default function Home(): JSX.Element {
+export default function LocalWeather(): JSX.Element {
   const [weather, setWeather] = useState("");
   const [weatherIcon, setWeatherIcon] = useState("");
   const [currentLocation, setCurrentLocation] = useState("");

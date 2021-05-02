@@ -1,0 +1,111 @@
+.world-wrapper {
+  width: 100%;
+  height: 100%;
+
+  .world-wrapper__container {
+    display: flex;
+    justify-content: center;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  &__world-map {
+    position: relative;
+    background: url(../../public/world-map.jpg) no-repeat 0 0;
+    width: 1037px;
+    height: 600px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+
+  .cities {
+    li {
+      position: absolute;
+      z-index: 10;
+      padding: 6px;
+      background-image: none;
+      background-color: rgba(240, 240, 240, 0.5);
+      border: solid 1px #fff;
+      border-radius: 8px;
+      -webkit-box-shadow: 0 1px 5px rgba(50, 50, 50, 0.25);
+      box-shadow: 0 1px 5px rgba(50, 50, 50, 0.25);
+      line-height: 1;
+      outline: 0;
+      width: 80px;
+      height: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+
+      img {
+        margin: 0 auto;
+      }
+    }
+
+    .cities__name {
+      font-weight: bold;
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+
+    .cities__NewYork {
+      top: 150px;
+      left: 300px;
+    }
+    .cities__LosAngeles {
+      top: 200px;
+      left: 150px;
+    }
+    .cities__Anchorage {
+      top: 120px;
+      left: 50px;
+    }
+    .cities__Lima {
+      top: 340px;
+      left: 260px;
+    }
+    .cities__SaoPaulo {
+      top: 480px;
+      left: 340px;
+    }
+    .cities__Honolulu {
+      top: 320px;
+      right: 0px;
+    }
+    .cities__Seoul {
+      top: 180px;
+      right: 160px;
+    }
+    .cities__Beijing {
+      top: 220px;
+      right: 240px;
+    }
+    .cities__Sydney {
+      top: 420px;
+      right: 100px;
+    }
+    .cities__Jakarta {
+      top: 380px;
+      right: 240px;
+    }
+    .cities__Moscow {
+      top: 120px;
+      right: 360px;
+    }
+    .cities__London {
+      top: 100px;
+      right: 520px;
+    }
+    .cities__Cairo {
+      top: 220px;
+      right: 430px;
+    }
+    .cities__CapeTown {
+      top: 450px;
+      right: 430px;
+    }
+  }
+}
