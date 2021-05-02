@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
-import styles from "../styles/pages/index.module.scss";
+import styles from "../styles/pages/world-weather.module.scss";
 import axios from "axios";
-import { japanCities } from "../constants/cities";
+import { worldCities } from "../constants/cities";
 import { Dimmer, Loader } from "semantic-ui-react";
 import { City } from "../types/city";
 
-export default function Home(): JSX.Element {
+export default function WorldWeather(): JSX.Element {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -15,14 +15,14 @@ export default function Home(): JSX.Element {
   }, []);
 
   function getCityWeather() {
-    japanCities.forEach(async (japanCity, index) => {
+    worldCities.forEach(async (worldCity, index) => {
       await axios
         .post(
-          `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${japanCity}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_MAP_API_KEY}`
+          `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${worldCity}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_MAP_API_KEY}`
         )
         .then((response: any) => {
           cities.push({
-            name: japanCity,
+            name: worldCity,
             weather: response.data.weather[0].description,
             weatherIcon: response.data.weather[0].icon,
             temp_max: response.data.main.temp_max,
@@ -30,7 +30,7 @@ export default function Home(): JSX.Element {
           });
           setCities(cities);
           // Index number starts from 0. So I added 1.
-          if (japanCities.length === index + 1) {
+          if (worldCities.length === index + 1) {
             setIsLoading(false);
           }
         });
@@ -47,15 +47,17 @@ export default function Home(): JSX.Element {
     );
   }
 
+  let trimedName = "";
   return (
-    <div className={styles["home-wrapper"]}>
+    <div className={styles["world-wrapper"]}>
       <Header />
-      <div className={styles["home-wrapper__container"]}>
-        <div className={styles["home-wrapper__japan-map"]}>
+      <div className={styles["world-wrapper__container"]}>
+        <div className={styles["world-wrapper__world-map"]}>
           <ul className={styles["cities"]}>
             {cities.map((city: City, Index: number) => {
+              trimedName = city.name.replace(/\s/g, "");
               return (
-                <li className={styles[`cities__${city.name}`]} key={Index}>
+                <li className={styles[`cities__${trimedName}`]} key={Index}>
                   <span className={styles[`cities__name`]}>{city.name}</span>
                   <img
                     src={`https://openweathermap.org/img/wn/${city.weatherIcon}@2x.png`}

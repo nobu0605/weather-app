@@ -13,3 +13,20 @@ export const japanCities = [
   "Kagoshima",
   "Naha",
 ];
+
+export const worldCities = [
+  "New York",
+  "Los Angeles",
+  "Anchorage",
+  "Lima",
+  "Sao Paulo",
+  "Honolulu",
+  "Seoul",
+  "Beijing",
+  "Sydney",
+  "Jakarta",
+  "Moscow",
+  "London",
+  "Cairo",
+  "Cape Town",
+];
