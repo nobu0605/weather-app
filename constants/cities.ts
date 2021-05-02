@@ -1,0 +1,15 @@
+export const japanCities = [
+  "Sapporo",
+  "Kushiro",
+  "Sendai",
+  "Niigata",
+  "Tokyo",
+  "Kanazawa",
+  "Nagoya",
+  "Osaka",
+  "Hiroshima",
+  "Kochi",
+  "Fukuoka",
+  "Kagoshima",
+  "Naha",
+];
