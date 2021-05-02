@@ -18,7 +18,7 @@ export default function Home(): JSX.Element {
       location = position.coords;
       const { latitude, longitude } = location;
       if (latitude && longitude) {
-        getCurrentPosition(longitude, latitude);
+        getCurrentLocationWeather(longitude, latitude);
       }
       axios
         .get(
@@ -30,7 +30,7 @@ export default function Home(): JSX.Element {
     });
   }, []);
 
-  function getCurrentPosition(longitude, latitude) {
+  function getCurrentLocationWeather(longitude, latitude) {
     axios
       .post(
         `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_MAP_API_KEY}`
