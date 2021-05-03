@@ -11,6 +11,11 @@
     list-style: none;
   }
 
+  &__title {
+    text-align: center;
+    font-size: 25px;
+  }
+
   &__japan-map {
     position: relative;
     background: url(../../public/map-japan.png) no-repeat 0 0;
