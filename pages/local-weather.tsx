@@ -47,7 +47,7 @@ export default function LocalWeather(): JSX.Element {
       <div>
         <div className={styles["weather-wrapper"]}>
           <p>Current Location : {currentLocation}</p>
-          <p>weather : {weather}</p>
+          <p>Current weather : {weather}</p>
           <img
             src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
             alt="weather icon"
