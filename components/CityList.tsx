@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../styles/components/CityList.module.scss";
+import Link from "next/link";
 
 type JapanRegionList = {
   Hokkaido: Array<string>;
@@ -49,7 +50,9 @@ export default function CityList(props: CityList): JSX.Element {
                   (city: string, cityIndex: number) => {
                     return (
                       <span key={cityIndex}>
-                        <a className={styles["regions__city-name"]}>{city}</a>
+                        <Link href={`/five-days-forecast?city=${city}`}>
+                          <a className={styles["regions__city-name"]}>{city}</a>
+                        </Link>
                         {/* Index number starts from 0. So I added 1. */}
                         {cityIndex + 1 !==
                           citiesInRegion[trimedRegionName].length && (
