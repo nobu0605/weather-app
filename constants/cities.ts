@@ -14,19 +14,38 @@ export const japanCities = [
   "Naha",
 ];
 
+export const japanCitiesInRegion = {
+  Hokkaido: ["Sapporo", "Kushiro"],
+  Tohoku: ["Sendai"],
+  KantoKoshinetsu: ["Niigata", "Tokyo"],
+  TokaiHokurikuKinki: ["Kanazawa", "Nagoya", "Osaka"],
+  ChugokuShikoku: ["Hiroshima", "Kochi"],
+  Kyushu: ["Fukuoka", "Kagoshima"],
+  Okinawa: ["Naha"],
+};
+
 export const worldCities = [
   "New York",
   "Los Angeles",
   "Anchorage",
+  "Honolulu",
   "Lima",
   "Sao Paulo",
-  "Honolulu",
   "Seoul",
   "Beijing",
-  "Sydney",
   "Jakarta",
   "Moscow",
+  "Sydney",
   "London",
   "Cairo",
   "Cape Town",
 ];
+
+export const worldCitiesInRegion = {
+  NorthAmerica: ["New York", "Los Angeles", "Anchorage", "Honolulu"],
+  SouthAmerica: ["Lima", "Sao Paulo"],
+  Asia: ["Seoul", "Beijing", "Jakarta", "Moscow"],
+  Australia: ["Sydney"],
+  Europe: ["London"],
+  Africa: ["Cairo", "Cape Town"],
+};

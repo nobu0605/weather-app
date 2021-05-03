@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import styles from "../styles/pages/index.module.scss";
-import { japanCities } from "../constants/cities";
+import { japanCities, japanCitiesInRegion } from "../constants/cities";
+import { japanRegions } from "../constants/regions";
 import { Dimmer, Loader } from "semantic-ui-react";
 import { City } from "../types/city";
 import { getCityWeather } from "../utils/weather";
 import CityCard from "../components/CityCard";
+import CityList from "../components/CityList";
 
 export default function Home(): JSX.Element {
   const [cityCardInfo, setCityCardInfo] = useState([]);
@@ -41,6 +44,8 @@ export default function Home(): JSX.Element {
           </ul>
         </div>
       </div>
+      <CityList regions={japanRegions} citiesInRegion={japanCitiesInRegion} />
+      <Footer></Footer>
     </div>
   );
 }
