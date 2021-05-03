@@ -29,6 +29,9 @@ export default function Home(): JSX.Element {
   return (
     <div className={styles["home-wrapper"]}>
       <Header />
+      <h1 className={styles["home-wrapper__title"]}>
+        Current weather in Japan
+      </h1>
       <div className={styles["home-wrapper__container"]}>
         <div className={styles["home-wrapper__japan-map"]}>
           <ul className={styles["cities"]}>

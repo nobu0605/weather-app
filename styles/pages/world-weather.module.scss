@@ -11,6 +11,11 @@
     list-style: none;
   }
 
+  &__title {
+    text-align: center;
+    font-size: 25px;
+  }
+
   &__world-map {
     position: relative;
     background: url(../../public/world-map.jpg) no-repeat 0 0;
