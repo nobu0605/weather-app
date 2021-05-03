@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../styles/pages/local-weather.module.scss";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function LocalWeather(): JSX.Element {
   const [weather, setWeather] = useState("");
@@ -54,6 +55,7 @@ export default function LocalWeather(): JSX.Element {
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

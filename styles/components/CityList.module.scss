@@ -1,0 +1,44 @@
+.regions {
+  display: flex;
+  justify-content: center;
+
+  &__lists {
+    border-top: 1px solid #dce5f5;
+    border-bottom: 1px solid #dce5f5;
+    width: 60%;
+    padding-left: 0px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+    padding: 7px 10px;
+    border-bottom: 1px solid #fff;
+    line-height: 1;
+  }
+
+  .odd {
+    background: #f9fbff;
+  }
+
+  .even {
+    background: #f0f4fb;
+  }
+
+  &__city-list {
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__region-name {
+    font-weight: bold;
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 0px;
+  }
+
+  &__city-name {
+  }
+}
