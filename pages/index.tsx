@@ -33,33 +33,21 @@ export default function Home(): JSX.Element {
   return (
     <div className={styles["home-wrapper"]}>
       <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <meta name="google" content="notranslate" />
-        <title># 投稿企画 OGP</title>
-        <meta property="og:url" content="https://www.google.com/" />
-        <meta property="og:title" content="# 投稿企画 OGP" />
-        <meta property="og:description" content="OGP" />
+        <title>Social Media Preview</title>
+        <meta property="og:url" content="https://www.google.com" />
         <meta property="og:type" content="website" />
+        <meta property="fb:app_id" content="487392449070633" />
+        <meta property="og:title" content="Social Media Preview Working?" />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          property="og:description"
+          content="Hurray!! Yes Social Media Preview is Working"
+        />
         <meta
           property="og:image"
-          content="https://assets.coderrocketfuel.com/twitter-post-with-node-js.png"
-        />
-        <meta
-          property="og:image:secure_url"
-          content="https://assets.coderrocketfuel.com/twitter-post-with-node-js.png"
-        />
-        <meta property="og:image:width" content="910" />
-        <meta property="og:image:height" content="478" />
-        <meta property="og:site_name" content="# 投稿企画 OGP" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="# 投稿企画 OGP" />
-        <meta name="twitter:url" content="https://www.google.com/" />
-        <meta name="twitter:description" content="OGP" />
-        <meta
-          name="twitter:image"
-          content="https://assets.coderrocketfuel.com/twitter-post-with-node-js.png"
+          content={
+            "https://assets.coderrocketfuel.com/twitter-post-with-node-js.png"
+          }
         />
       </Head>
       <h1 className={styles["home-wrapper__title"]}>
