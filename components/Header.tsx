@@ -66,11 +66,11 @@ export default function Header(props: Props): JSX.Element {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://weather-data-application.herokuapp.com/sun.jpg"
+          content="https://assets.coderrocketfuel.com/twitter-post-with-node-js.png"
         />
         <meta
           property="og:image:secure_url"
-          content="https://weather-data-application.herokuapp.com/sun.jpg"
+          content="https://assets.coderrocketfuel.com/twitter-post-with-node-js.png"
         />
         <meta property="og:image:width" content="910" />
         <meta property="og:image:height" content="478" />
@@ -81,7 +81,7 @@ export default function Header(props: Props): JSX.Element {
         <meta name="twitter:description" content="OGP" />
         <meta
           name="twitter:image"
-          content="https://weather-data-application.herokuapp.com/sun.jpg"
+          content="https://assets.coderrocketfuel.com/twitter-post-with-node-js.png"
         />
       </Head>
       <div className={styles["header-top"]}>
