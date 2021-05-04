@@ -57,7 +57,7 @@ export default function Header(props: Props): JSX.Element {
       <Menu
         className={styles["header-menu"]}
         inverted
-        style={{ borderRadius: "0", paddingLeft: "20px" }}
+        style={{ borderRadius: 0, paddingLeft: "20px" }}
       >
         <Link href="/">
           <Menu.Item name="home" />
