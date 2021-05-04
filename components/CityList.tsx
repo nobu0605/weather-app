@@ -29,17 +29,17 @@ type CityList = {
 export default function CityList(props: CityList): JSX.Element {
   const { regions, citiesInRegion } = props;
   let trimedRegionName = "";
-  let typeOfNumber = "";
+  let oddOrEvenNumber = "";
 
   return (
     <div className={styles["regions"]}>
       <ul className={styles["regions__lists"]}>
         {regions.map((region: string, regionIndex: number) => {
           trimedRegionName = region.replace(/\s/g, "");
-          typeOfNumber = regionIndex % 2 == 0 ? "even" : "odd";
+          oddOrEvenNumber = regionIndex % 2 == 0 ? "even" : "odd";
           return (
             <li
-              className={`${styles["regions__list"]} ${styles[typeOfNumber]}`}
+              className={`${styles["regions__list"]} ${styles[oddOrEvenNumber]}`}
               key={regionIndex}
             >
               <p className={styles["regions__region-name"]}>
