@@ -1,6 +1,25 @@
-.title {
-  margin-left: 40px;
-  line-height: 1.15;
-  font-size: 30px;
-  padding-top: 7px;
+.header-wrapper {
+  .header-top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+
+    &__search {
+      margin-left: 30px;
+    }
+  }
+
+  .title {
+    margin-left: 25px;
+    line-height: 1.15;
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+
+  .header-menu {
+    margin-top: 0px;
+  }
 }

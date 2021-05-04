@@ -5,17 +5,18 @@ import styles from "../styles/pages/five-days-forecast.module.scss";
 import { useRouter } from "next/router";
 import axios from "axios";
 import moment from "moment";
-
-type Props = {
-  query: any;
-};
+import { Dimmer, Loader } from "semantic-ui-react";
 
 FiveDaysForecast.getInitialProps = ({ query }) => {
   return { query };
 };
 
-export default function FiveDaysForecast(props: Props): JSX.Element {
+export default function FiveDaysForecast(): JSX.Element {
   const [weatherList, setWeatherList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [errors, setErrors] = useState({
+    notFound: false,
+  });
   const router = useRouter();
   const cityName = router.query.city;
 
@@ -30,7 +31,37 @@ export default function FiveDaysForecast(props: Props): JSX.Element {
       )
       .then((response: any) => {
         setWeatherList(response.data.list);
+      })
+      .catch((e) => {
+        console.error(e);
+        errors["notFound"] = true;
+        if (e.response.status === 404) {
+          setErrors(errors);
+        }
       });
+    setIsLoading(false);
+  }
+
+  if (isLoading) {
+    return (
+      <Dimmer active={true} inverted>
+        <Loader inline="centered" size="huge">
+          Loading
+        </Loader>
+      </Dimmer>
+    );
+  }
+
+  if (errors.notFound) {
+    return (
+      <div className={styles["five-days-wrapper"]}>
+        <Header />
+        <h1 className={styles["five-days-wrapper__title"]}>
+          The city you searched is not found.
+        </h1>
+        <Footer />
+      </div>
+    );
   }
 
   return (
@@ -41,7 +72,7 @@ export default function FiveDaysForecast(props: Props): JSX.Element {
       </h1>
       <div className={styles["five-days-wrapper__container"]}>
         <ul className={styles["horizontal-list"]}>
-          <li className={styles["item"]}>
+          <li className={styles["horizontal-list__item"]}>
             <p>Date Time</p>
             <p>Weather</p>
             <p>Weather Icon</p>
@@ -49,7 +80,7 @@ export default function FiveDaysForecast(props: Props): JSX.Element {
           </li>
           {weatherList.map((weather: any, Index: number) => {
             return (
-              <li className={styles["item"]} key={Index}>
+              <li className={styles["horizontal-list__item"]} key={Index}>
                 <p>
                   {moment(weather.dt * 1000).format("MM/D H:00")}
                   &nbsp;&nbsp;

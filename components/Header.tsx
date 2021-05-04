@@ -6,12 +6,18 @@ import Link from "next/link";
 
 export default function Header(): JSX.Element {
   return (
-    <div>
+    <div className={styles["header-wrapper"]}>
       <Head>
         <title>Weather app</title>
       </Head>
-      <h1 className={styles.title}>Weather app</h1>
-      <Menu inverted style={{ borderRadius: "0", paddingLeft: "20px" }}>
+      <div className={styles["header-top"]}>
+        <h1 className={styles["header-title"]}>Weather app</h1>
+      </div>
+      <Menu
+        className={styles["header-menu"]}
+        inverted
+        style={{ borderRadius: "0", paddingLeft: "20px" }}
+      >
         <Link href="/">
           <Menu.Item name="home" />
         </Link>
@@ -20,6 +26,9 @@ export default function Header(): JSX.Element {
         </Link>
         <Link href="/world-weather">
           <Menu.Item name="world weather" />
+        </Link>
+        <Link href="/cities">
+          <Menu.Item name="city list" />
         </Link>
       </Menu>
     </div>
