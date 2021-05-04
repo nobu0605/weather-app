@@ -36,6 +36,10 @@ export default function Header(props: Props): JSX.Element {
         <meta property="og:url" content={url} />
         <meta property="og:image" content={image} />
         <meta property="og:site_name" content={title} />
+        <meta
+          property="fb:app_id"
+          content={process.env.NEXT_PUBLIC_OPEN_FACEBOOK_APP_ID}
+        />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:url" content={image} />
         <meta name="twitter:title" content={title} />
