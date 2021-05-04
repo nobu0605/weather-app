@@ -5,7 +5,7 @@ import styles from "../styles/components/Header.module.scss";
 import Link from "next/link";
 
 interface Props {
-  contents: {
+  contents?: {
     title: string;
     description: string;
     keyword: string;
