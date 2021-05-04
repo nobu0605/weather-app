@@ -19,7 +19,7 @@ export default function Header(props: Props): JSX.Element {
     title: "Weather app",
     description: "Weather app",
     keyword: "Weather app",
-    image: "/sun.png",
+    image: `${process.env.NEXT_PUBLIC_BASE_URL}/sun.jpg`,
     url: "https://weather-data-application.herokuapp.com/",
   };
   const contents = props.contents ? props.contents : initialContents;
@@ -40,6 +40,7 @@ export default function Header(props: Props): JSX.Element {
           property="fb:app_id"
           content={process.env.NEXT_PUBLIC_OPEN_FACEBOOK_APP_ID}
         />
+        <meta name="twitter:site" content="@Proceed_ios" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:url" content={image} />
         <meta name="twitter:title" content={title} />
