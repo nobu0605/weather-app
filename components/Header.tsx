@@ -4,7 +4,7 @@ import { Menu } from "semantic-ui-react";
 import styles from "../styles/components/Header.module.scss";
 import Link from "next/link";
 
-interface Props {
+type Props = {
   contents?: {
     title: string;
     description: string;
@@ -12,9 +12,10 @@ interface Props {
     image: string;
     url: string;
   };
-}
+};
 
 export default function Header(props: Props): JSX.Element {
+  console.log("Header props: ", props);
   const initialContents = {
     title: "Weather app",
     description: "Weather app",
@@ -22,13 +23,15 @@ export default function Header(props: Props): JSX.Element {
     image: `${process.env.NEXT_PUBLIC_BASE_URL}/sun.jpg`,
     url: "https://weather-data-application.herokuapp.com/",
   };
-  const contents = props.contents ? props.contents : initialContents;
-  const { title, description, keyword, image, url } = contents;
+  const { title, description, keyword, image, url } = props.contents
+    ? props.contents
+    : initialContents;
 
+  console.log("description: ", description);
   return (
     <div className={styles["header-wrapper"]}>
       <Head>
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta name="description" content={description}></meta>
         <title>Weather app</title>
@@ -49,13 +52,13 @@ export default function Header(props: Props): JSX.Element {
         />
 
         <meta name="twitter:site" content="@Proceed_ios" />
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
-        <link rel="canonical" href={url} /> */}
+        <link rel="canonical" href={url} />
 
-        <meta charSet="utf-8" />
+        {/* <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <meta name="google" content="notranslate" />
@@ -82,7 +85,7 @@ export default function Header(props: Props): JSX.Element {
         <meta
           name="twitter:image"
           content="https://assets.coderrocketfuel.com/twitter-post-with-node-js.png"
-        />
+        /> */}
       </Head>
       <div className={styles["header-top"]}>
         <Link href="/">

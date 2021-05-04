@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
-import Head from "next/head";
 import Footer from "../components/Footer";
 import styles from "../styles/pages/index.module.scss";
 import { japanCities, japanCitiesInRegion } from "../constants/cities";
@@ -11,7 +10,18 @@ import { getCityWeather } from "../utils/weather";
 import CityCard from "../components/CityCard";
 import CityList from "../components/CityList";
 
-export default function Home(): JSX.Element {
+type Props = {
+  contents?: {
+    title: string;
+    description: string;
+    keyword: string;
+    image: string;
+    url: string;
+  };
+};
+
+export default function Home(props: Props): JSX.Element {
+  console.log("Home props: ", props);
   const [cityCardInfo, setCityCardInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -32,24 +42,7 @@ export default function Home(): JSX.Element {
 
   return (
     <div className={styles["home-wrapper"]}>
-      <Head>
-        <title>Social Media Preview</title>
-        <meta property="og:url" content="https://www.google.com" />
-        <meta property="og:type" content="website" />
-        <meta property="fb:app_id" content="487392449070633" />
-        <meta property="og:title" content="Social Media Preview Working?" />
-        <meta name="twitter:card" content="summary" />
-        <meta
-          property="og:description"
-          content="Hurray!! Yes Social Media Preview is Working"
-        />
-        <meta
-          property="og:image"
-          content={
-            "https://assets.coderrocketfuel.com/twitter-post-with-node-js.png"
-          }
-        />
-      </Head>
+      <Header contents={props.contents} />
       <h1 className={styles["home-wrapper__title"]}>
         Current weather in Japan
       </h1>
@@ -66,4 +59,15 @@ export default function Home(): JSX.Element {
       <Footer></Footer>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const contents = {
+    title: "Weather app",
+    description: "Weather app",
+    keyword: "Weather app",
+    image: `${process.env.NEXT_PUBLIC_BASE_URL}/sun.jpg`,
+    url: "https://weather-data-application.herokuapp.com",
+  };
+  return { props: { contents } };
 }
