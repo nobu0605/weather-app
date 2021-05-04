@@ -11,7 +11,11 @@ export default function Header(): JSX.Element {
         <title>Weather app</title>
       </Head>
       <div className={styles["header-top"]}>
-        <h1 className={styles["header-title"]}>Weather app</h1>
+        <Link href="/">
+          <a>
+            <h1 className={styles["header-title"]}>Weather app</h1>
+          </a>
+        </Link>
       </div>
       <Menu
         className={styles["header-menu"]}
