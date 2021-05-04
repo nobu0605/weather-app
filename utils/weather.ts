@@ -23,6 +23,9 @@ export function getCityWeather(
         if (cities.length === index + 1) {
           setIsLoading(false);
         }
+      })
+      .catch((e) => {
+        console.error(e);
       });
   });
 

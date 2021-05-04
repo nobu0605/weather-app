@@ -27,6 +27,9 @@ export default function LocalWeather(): JSX.Element {
         )
         .then((response: any) => {
           setCurrentLocation(response.data.results[6].formatted_address);
+        })
+        .catch((e) => {
+          console.error(e);
         });
     });
   }, []);
@@ -39,20 +42,31 @@ export default function LocalWeather(): JSX.Element {
       .then((response: any) => {
         setWeather(response.data.weather[0].description);
         setWeatherIcon(response.data.weather[0].icon);
+      })
+      .catch((e) => {
+        console.error(e);
       });
   }
 
   return (
-    <div>
+    <div className={styles["local-weather-wrapper"]}>
       <Header />
-      <div>
-        <div className={styles["weather-wrapper"]}>
+      <h1 className={styles["local-weather-wrapper__title"]}>
+        Current Location Weather
+      </h1>
+      <div className={styles["current-weather"]}>
+        <div>
           <p>Current Location : {currentLocation}</p>
-          <p>Current weather : {weather}</p>
-          <img
-            src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
-            alt="weather icon"
-          />
+          <p>Current Weather : {weather}</p>
+          <p>
+            Weather Icon :
+            <img
+              src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
+              alt="weather icon"
+              width={40}
+              height={40}
+            />
+          </p>
         </div>
       </div>
       <Footer />
