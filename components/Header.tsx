@@ -40,6 +40,7 @@ export default function Header(props: Props): JSX.Element {
           property="fb:app_id"
           content={process.env.NEXT_PUBLIC_OPEN_FACEBOOK_APP_ID}
         />
+        <meta name="twitter:site" content="@Proceed_ios" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:url" content={image} />
         <meta name="twitter:title" content={title} />
