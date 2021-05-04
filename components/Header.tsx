@@ -28,7 +28,7 @@ export default function Header(props: Props): JSX.Element {
   return (
     <div className={styles["header-wrapper"]}>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta name="description" content={description}></meta>
         <title>Weather app</title>
@@ -53,7 +53,36 @@ export default function Header(props: Props): JSX.Element {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
-        <link rel="canonical" href={url} />
+        <link rel="canonical" href={url} /> */}
+
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <meta name="google" content="notranslate" />
+        <title># 投稿企画 OGP</title>
+        <meta property="og:url" content="https://www.google.com/" />
+        <meta property="og:title" content="# 投稿企画 OGP" />
+        <meta property="og:description" content="OGP" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://weather-data-application.herokuapp.com/sun.jpg"
+        />
+        <meta
+          property="og:image:secure_url"
+          content="https://weather-data-application.herokuapp.com/sun.jpg"
+        />
+        <meta property="og:image:width" content="910" />
+        <meta property="og:image:height" content="478" />
+        <meta property="og:site_name" content="# 投稿企画 OGP" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="# 投稿企画 OGP" />
+        <meta name="twitter:url" content="https://www.google.com/" />
+        <meta name="twitter:description" content="OGP" />
+        <meta
+          name="twitter:image"
+          content="https://weather-data-application.herokuapp.com/sun.jpg"
+        />
       </Head>
       <div className={styles["header-top"]}>
         <Link href="/">
