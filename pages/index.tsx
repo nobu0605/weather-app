@@ -13,6 +13,13 @@ import CityList from "../components/CityList";
 export default function Home(): JSX.Element {
   const [cityCardInfo, setCityCardInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const ogpContents = {
+    title: "Weather app",
+    description: "Weather app",
+    keyword: "Weather app",
+    image: `${process.env.NEXT_PUBLIC_BASE_URL}/map-japan.png`,
+    url: "https://weather-data-application.herokuapp.com",
+  };
 
   useEffect(() => {
     const result = getCityWeather(japanCities, cityCardInfo, setIsLoading);
@@ -22,7 +29,7 @@ export default function Home(): JSX.Element {
   if (isLoading) {
     return (
       <Dimmer active={true} inverted>
-        <Header />
+        <Header contents={ogpContents} />
         <Loader inline="centered" size="huge">
           Loading
         </Loader>
@@ -32,7 +39,7 @@ export default function Home(): JSX.Element {
 
   return (
     <div className={styles["home-wrapper"]}>
-      <Header />
+      <Header contents={ogpContents} />
       <h1 className={styles["home-wrapper__title"]}>
         Current weather in Japan
       </h1>
