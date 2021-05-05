@@ -70,42 +70,41 @@ export default function FiveDaysForecast(): JSX.Element {
   let oddOrEvenNumber = "";
 
   return (
-    <Header>
-      <div className={styles["cities-wrapper"]}>
-        <h1 className={styles["cities-wrapper__title"]}>City List</h1>
-        <div className={styles["search"]}>
-          <Search
-            className={styles["search__input"]}
-            loading={loading}
-            onResultSelect={(e, data) => handleSearchChange(e, data)}
-            onSearchChange={handleSearchChange}
-            results={results}
-            value={value}
-          />
-        </div>
-        <div className={styles["cities"]}>
-          <ul className={styles["cities__lists"]}>
-            <div className={styles["cities__city-section"]}>
-              {allCities.map((city: string, cityIndex: number) => {
-                oddOrEvenNumber = cityIndex % 2 == 0 ? "even" : "odd";
-                return (
-                  <li
-                    key={cityIndex}
-                    className={`${styles["cities__list"]} ${styles[oddOrEvenNumber]}`}
-                  >
-                    <p className={styles["cities__region-name"]}>
-                      <Link href={`/five-days-forecast?city=${city}`}>
-                        <a className={styles["cities__city-name"]}>{city}</a>
-                      </Link>
-                    </p>
-                  </li>
-                );
-              })}
-            </div>
-          </ul>
-        </div>
-        <Footer />
+    <div className={styles["cities-wrapper"]}>
+      <Header />
+      <h1 className={styles["cities-wrapper__title"]}>City List</h1>
+      <div className={styles["search"]}>
+        <Search
+          className={styles["search__input"]}
+          loading={loading}
+          onResultSelect={(e, data) => handleSearchChange(e, data)}
+          onSearchChange={handleSearchChange}
+          results={results}
+          value={value}
+        />
       </div>
-    </Header>
+      <div className={styles["cities"]}>
+        <ul className={styles["cities__lists"]}>
+          <div className={styles["cities__city-section"]}>
+            {allCities.map((city: string, cityIndex: number) => {
+              oddOrEvenNumber = cityIndex % 2 == 0 ? "even" : "odd";
+              return (
+                <li
+                  key={cityIndex}
+                  className={`${styles["cities__list"]} ${styles[oddOrEvenNumber]}`}
+                >
+                  <p className={styles["cities__region-name"]}>
+                    <Link href={`/five-days-forecast?city=${city}`}>
+                      <a className={styles["cities__city-name"]}>{city}</a>
+                    </Link>
+                  </p>
+                </li>
+              );
+            })}
+          </div>
+        </ul>
+      </div>
+      <Footer />
+    </div>
   );
 }
