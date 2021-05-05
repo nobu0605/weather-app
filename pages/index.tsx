@@ -17,7 +17,7 @@ export default function Home(): JSX.Element {
     title: "Weather app",
     description: "Weather app",
     keyword: "Weather app",
-    image: `${process.env.NEXT_PUBLIC_BASE_URL}/japan-ogp.jpg`,
+    image: `${process.env.NEXT_PUBLIC_BASE_URL}/japan-ogp.png`,
     url: "https://weather-data-application.herokuapp.com",
   };
 
