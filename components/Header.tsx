@@ -22,7 +22,7 @@ export default function Header(props: Props): JSX.Element {
     description: "Weather app",
     keyword: "Weather app",
     image: `${process.env.NEXT_PUBLIC_BASE_URL}/sun.jpg`,
-    url: "https://weather-data-application.herokuapp.com",
+    url: "https://weather-data-application.herokuapp.com/cities",
   };
   const { title, description, keyword, image, url } = props.contents
     ? props.contents
