@@ -34,7 +34,7 @@ export default function WorldWeather(): JSX.Element {
 
   return (
     <div className={styles["world-wrapper"]}>
-      <Header />
+      {/* <Header /> */}
       <h1 className={styles["world-wrapper__title"]}>
         Current weather in the world
       </h1>
