@@ -10,18 +10,7 @@ import { getCityWeather } from "../utils/weather";
 import CityCard from "../components/CityCard";
 import CityList from "../components/CityList";
 
-type Props = {
-  contents?: {
-    title: string;
-    description: string;
-    keyword: string;
-    image: string;
-    url: string;
-  };
-};
-
-export default function Home(props: Props): JSX.Element {
-  console.log("Home props: ", props);
+export default function Home(): JSX.Element {
   const [cityCardInfo, setCityCardInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -42,7 +31,6 @@ export default function Home(props: Props): JSX.Element {
 
   return (
     <div className={styles["home-wrapper"]}>
-      <Header contents={props.contents} />
       <h1 className={styles["home-wrapper__title"]}>
         Current weather in Japan
       </h1>
@@ -59,15 +47,4 @@ export default function Home(props: Props): JSX.Element {
       <Footer></Footer>
     </div>
   );
-}
-
-export async function getServerSideProps() {
-  const contents = {
-    title: "Weather app",
-    description: "Weather app",
-    keyword: "Weather app",
-    image: `${process.env.NEXT_PUBLIC_BASE_URL}/sun.jpg`,
-    url: "https://weather-data-application.herokuapp.com",
-  };
-  return { props: { contents } };
 }
