@@ -21,34 +21,32 @@ export default function Home(): JSX.Element {
 
   if (isLoading) {
     return (
-      <Header>
-        <Dimmer active={true} inverted>
-          <Loader inline="centered" size="huge">
-            Loading
-          </Loader>
-        </Dimmer>
-      </Header>
+      <Dimmer active={true} inverted>
+        <Header />
+        <Loader inline="centered" size="huge">
+          Loading
+        </Loader>
+      </Dimmer>
     );
   }
 
   return (
-    <Header>
-      <div className={styles["home-wrapper"]}>
-        <h1 className={styles["home-wrapper__title"]}>
-          Current weather in Japan
-        </h1>
-        <div className={styles["home-wrapper__container"]}>
-          <div className={styles["home-wrapper__japan-map"]}>
-            <ul className={styles["cities"]}>
-              {cityCardInfo.map((city: City, Index: number) => {
-                return <CityCard city={city} key={Index} />;
-              })}
-            </ul>
-          </div>
+    <div className={styles["home-wrapper"]}>
+      <Header />
+      <h1 className={styles["home-wrapper__title"]}>
+        Current weather in Japan
+      </h1>
+      <div className={styles["home-wrapper__container"]}>
+        <div className={styles["home-wrapper__japan-map"]}>
+          <ul className={styles["cities"]}>
+            {cityCardInfo.map((city: City, Index: number) => {
+              return <CityCard city={city} key={Index} />;
+            })}
+          </ul>
         </div>
-        <CityList regions={japanRegions} citiesInRegion={japanCitiesInRegion} />
-        <Footer></Footer>
       </div>
-    </Header>
+      <CityList regions={japanRegions} citiesInRegion={japanCitiesInRegion} />
+      <Footer></Footer>
+    </div>
   );
 }
