@@ -12,6 +12,7 @@ type Props = {
     image: string;
     url: string;
   };
+  children: any;
 };
 
 export default function Header(props: Props): JSX.Element {
@@ -21,7 +22,7 @@ export default function Header(props: Props): JSX.Element {
     description: "Weather app",
     keyword: "Weather app",
     image: `${process.env.NEXT_PUBLIC_BASE_URL}/sun.jpg`,
-    url: "https://weather-data-application.herokuapp.com/",
+    url: "https://weather-data-application.herokuapp.com",
   };
   const { title, description, keyword, image, url } = props.contents
     ? props.contents
@@ -112,6 +113,7 @@ export default function Header(props: Props): JSX.Element {
           <Menu.Item name="city list" />
         </Link>
       </Menu>
+      {props.children}
     </div>
   );
 }
