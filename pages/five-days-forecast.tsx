@@ -55,7 +55,7 @@ export default function FiveDaysForecast(): JSX.Element {
   if (errors.notFound) {
     return (
       <div className={styles["five-days-wrapper"]}>
-        <Header />
+        {/* <Header /> */}
         <h1 className={styles["five-days-wrapper__title"]}>
           The city you searched is not found.
         </h1>
@@ -66,7 +66,7 @@ export default function FiveDaysForecast(): JSX.Element {
 
   return (
     <div className={styles["five-days-wrapper"]}>
-      <Header />
+      {/* <Header /> */}
       <h1 className={styles["five-days-wrapper__title"]}>
         5 days / 3 hours forecast in {cityName}
       </h1>

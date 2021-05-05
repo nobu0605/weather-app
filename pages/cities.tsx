@@ -71,7 +71,7 @@ export default function FiveDaysForecast(): JSX.Element {
 
   return (
     <div className={styles["cities-wrapper"]}>
-      <Header />
+      {/* <Header /> */}
       <h1 className={styles["cities-wrapper__title"]}>City List</h1>
       <div className={styles["search"]}>
         <Search

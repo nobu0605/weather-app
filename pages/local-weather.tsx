@@ -50,7 +50,7 @@ export default function LocalWeather(): JSX.Element {
 
   return (
     <div className={styles["local-weather-wrapper"]}>
-      <Header />
+      {/* <Header /> */}
       <h1 className={styles["local-weather-wrapper__title"]}>
         Current Location Weather
       </h1>
