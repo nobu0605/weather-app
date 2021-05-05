@@ -15,6 +15,14 @@ export default function WorldWeather(): JSX.Element {
   const [cityCardInfo, setCityCardInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const ogpContents = {
+    title: "Weather app",
+    description: "Weather app",
+    keyword: "Weather app",
+    image: `${process.env.NEXT_PUBLIC_BASE_URL}/world-ogp.jpg`,
+    url: "https://weather-data-application.herokuapp.com/world-weather",
+  };
+
   useEffect(() => {
     const result = getCityWeather(worldCities, cityCardInfo, setIsLoading);
     setCityCardInfo(result);
@@ -23,7 +31,7 @@ export default function WorldWeather(): JSX.Element {
   if (isLoading) {
     return (
       <Dimmer active={true} inverted>
-        <Header />
+        <Header contents={ogpContents} />
         <Loader inline="centered" size="huge">
           Loading
         </Loader>
@@ -35,7 +43,7 @@ export default function WorldWeather(): JSX.Element {
 
   return (
     <div className={styles["world-wrapper"]}>
-      <Header />
+      <Header contents={ogpContents} />
       <h1 className={styles["world-wrapper__title"]}>
         Current weather in the world
       </h1>
