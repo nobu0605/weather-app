@@ -23,6 +23,7 @@ export default function WorldWeather(): JSX.Element {
   if (isLoading) {
     return (
       <Dimmer active={true} inverted>
+        <Header />
         <Loader inline="centered" size="huge">
           Loading
         </Loader>
@@ -34,7 +35,7 @@ export default function WorldWeather(): JSX.Element {
 
   return (
     <div className={styles["world-wrapper"]}>
-      {/* <Header /> */}
+      <Header />
       <h1 className={styles["world-wrapper__title"]}>
         Current weather in the world
       </h1>

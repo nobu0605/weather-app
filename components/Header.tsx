@@ -12,7 +12,6 @@ type Props = {
     image: string;
     url: string;
   };
-  children: any;
 };
 
 export default function Header(props: Props): JSX.Element {
@@ -27,7 +26,6 @@ export default function Header(props: Props): JSX.Element {
     ? props.contents
     : initialContents;
 
-  console.log("description: ", description);
   return (
     <div className={styles["header-wrapper"]}>
       <Head>
@@ -83,7 +81,6 @@ export default function Header(props: Props): JSX.Element {
           <Menu.Item name="city list" />
         </Link>
       </Menu>
-      {props.children}
     </div>
   );
 }
