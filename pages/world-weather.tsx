@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
+import CustomHead from "../components/CustomHead";
 import Footer from "../components/Footer";
 import styles from "../styles/pages/world-weather.module.scss";
 import { Dimmer, Loader } from "semantic-ui-react";
@@ -31,7 +32,7 @@ export default function WorldWeather(): JSX.Element {
   if (isLoading) {
     return (
       <Dimmer active={true} inverted>
-        <Header contents={ogpContents} />
+        <CustomHead contents={ogpContents} />
         <Loader inline="centered" size="huge">
           Loading
         </Loader>

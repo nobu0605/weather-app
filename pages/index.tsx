@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
+import CustomHead from "../components/CustomHead";
 import Footer from "../components/Footer";
 import styles from "../styles/pages/index.module.scss";
 import { japanCities, japanCitiesInRegion } from "../constants/cities";
@@ -29,7 +30,7 @@ export default function Home(): JSX.Element {
   if (isLoading) {
     return (
       <Dimmer active={true} inverted>
-        <Header contents={ogpContents} />
+        <CustomHead contents={ogpContents} />
         <Loader inline="centered" size="huge">
           Loading
         </Loader>
