@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
+import CustomHead from "../components/CustomHead";
 import Footer from "../components/Footer";
 import styles from "../styles/pages/five-days-forecast.module.scss";
 import { useRouter } from "next/router";
@@ -45,7 +46,7 @@ export default function FiveDaysForecast(): JSX.Element {
   if (isLoading) {
     return (
       <Dimmer active={true} inverted>
-        <Header />
+        <CustomHead />
         <Loader inline="centered" size="huge">
           Loading
         </Loader>
