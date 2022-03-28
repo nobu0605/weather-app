@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 type Props = {
   contents?: {
@@ -12,6 +13,9 @@ type Props = {
 };
 
 export default function CustomHead(props: Props): JSX.Element {
+  const router = useRouter();
+  const ogpImage = router.query.service;
+  console.log("router.query: ", router.query);
   const initialContents = {
     title: "Weather app",
     description: "Weather app",
@@ -22,6 +26,7 @@ export default function CustomHead(props: Props): JSX.Element {
   const { title, description, keyword, image, url } = props.contents
     ? props.contents
     : initialContents;
+  const ogpImagePath = `${process.env.NEXT_PUBLIC_BASE_URL}/${ogpImage}.jpg`;
 
   return (
     <Head>
@@ -35,8 +40,8 @@ export default function CustomHead(props: Props): JSX.Element {
       <meta name="keywords" content={keyword} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
-      <meta property="og:image" content={image} />
-      <meta property="og:image:secure_url" content={image} />
+      <meta property="og:image" content={ogpImagePath} />
+      <meta property="og:image:secure_url" content={ogpImagePath} />
       <meta property="og:image:width" content="910" />
       <meta property="og:image:height" content="478" />
       <meta property="og:site_name" content={title} />
@@ -48,7 +53,7 @@ export default function CustomHead(props: Props): JSX.Element {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={ogpImagePath} />
       <link rel="canonical" href={url} />
     </Head>
   );
