@@ -11,7 +11,7 @@ import { getCityWeather } from "../utils/weather";
 import CityCard from "../components/CityCard";
 import CityList from "../components/CityList";
 
-function Home(): JSX.Element {
+export default function Home(): JSX.Element {
   const [cityCardInfo, setCityCardInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const ogpContents = {
@@ -58,5 +58,3 @@ function Home(): JSX.Element {
     </div>
   );
 }
-
-export default Home;
