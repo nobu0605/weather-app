@@ -23,11 +23,14 @@ export default function CustomHead(props: Props): JSX.Element {
     image: `${process.env.NEXT_PUBLIC_BASE_URL}/sun.jpg`,
     url: "https://weather-data-application.herokuapp.com",
   };
+
+  console.log("ogpImage: ", ogpImage);
   const { title, description, keyword, image, url } = props.contents
     ? props.contents
     : initialContents;
   const ogpImagePath = `${process.env.NEXT_PUBLIC_BASE_URL}/${ogpImage}.jpg`;
 
+  console.log("ogpImagePath: ", ogpImagePath);
   return (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
