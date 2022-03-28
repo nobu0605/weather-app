@@ -11,7 +11,7 @@ import { getCityWeather } from "../utils/weather";
 import CityCard from "../components/CityCard";
 import CityList from "../components/CityList";
 
-export default function Home(): JSX.Element {
+function Home(props: any): JSX.Element {
   const [cityCardInfo, setCityCardInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const ogpContents = {
@@ -30,7 +30,7 @@ export default function Home(): JSX.Element {
   if (isLoading) {
     return (
       <Dimmer active={true} inverted>
-        <CustomHead contents={ogpContents} />
+        <CustomHead contents={ogpContents} query={props.query} />
         <Loader inline="centered" size="huge">
           Loading
         </Loader>
@@ -40,7 +40,7 @@ export default function Home(): JSX.Element {
 
   return (
     <div className={styles["home-wrapper"]}>
-      <Header contents={ogpContents} />
+      <Header contents={ogpContents} query={props.query} />
       <h1 className={styles["home-wrapper__title"]}>
         Current weather in Japan
       </h1>
@@ -58,3 +58,11 @@ export default function Home(): JSX.Element {
     </div>
   );
 }
+
+Home.getInitialProps = async ({ query }) => {
+  return {
+    query,
+  };
+};
+
+export default Home;
