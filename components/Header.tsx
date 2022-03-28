@@ -12,13 +12,12 @@ type Props = {
     image: string;
     url: string;
   };
-  query?: any;
 };
 
 export default function Header(props: Props): JSX.Element {
   return (
     <div className={styles["header-wrapper"]}>
-      <CustomHead contents={props.contents} query={props.query} />
+      <CustomHead contents={props.contents} />
       <div className={styles["header-top"]}>
         <Link href="/">
           <a>
