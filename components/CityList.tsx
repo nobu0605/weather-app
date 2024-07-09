@@ -51,7 +51,9 @@ export default function CityList(props: CityList): JSX.Element {
                     return (
                       <span key={cityIndex}>
                         <Link href={`/five-days-forecast?city=${city}`}>
-                          <a className={styles["regions__city-name"]}>{city}</a>
+                          <span className={styles["regions__city-name"]}>
+                            {city}
+                          </span>
                         </Link>
                         {/* Index number starts from 0. So I added 1. */}
                         {cityIndex + 1 !==
