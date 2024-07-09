@@ -13,7 +13,7 @@ import { worldCitiesInRegion } from "../constants/cities";
 import { worldRegions } from "../constants/regions";
 
 export default function WorldWeather(): JSX.Element {
-  const [cityCardInfo, setCityCardInfo] = useState([]);
+  const [cityCardInfo, setCityCardInfo] = useState<City[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const ogpContents = {
@@ -25,8 +25,7 @@ export default function WorldWeather(): JSX.Element {
   };
 
   useEffect(() => {
-    const result = getCityWeathers(worldCities, cityCardInfo, setIsLoading);
-    setCityCardInfo(result);
+    getCityWeathers(worldCities, setIsLoading, setCityCardInfo);
   }, []);
 
   if (isLoading) {
