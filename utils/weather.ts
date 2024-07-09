@@ -23,8 +23,8 @@ export function getCityWeathers(
       temp_max: response.data.main.temp_max,
       temp_min: response.data.main.temp_min,
     });
-    // Index number starts from 0. So I added 1.
-    if (cities.length === index + 1) {
+    // // Index number starts from 0. So I added 1.
+    if (cityCardInfo.length === index + 1) {
       setIsLoading(false);
     }
   });
