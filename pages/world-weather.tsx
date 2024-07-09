@@ -25,8 +25,16 @@ export default function WorldWeather(): JSX.Element {
   };
 
   useEffect(() => {
-    const result = getCityWeathers(worldCities, cityCardInfo, setIsLoading);
-    setCityCardInfo(result);
+    async function getWeathers() {
+      const result = await getCityWeathers(
+        worldCities,
+        cityCardInfo,
+        setIsLoading
+      );
+      setCityCardInfo(result);
+    }
+
+    getWeathers();
   }, []);
 
   if (isLoading) {
