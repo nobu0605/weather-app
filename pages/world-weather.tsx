@@ -25,11 +25,10 @@ export default function WorldWeather(): JSX.Element {
   };
 
   useEffect(() => {
-    const result = getCityWeathers(worldCities, cityCardInfo, setIsLoading);
-    setCityCardInfo(result);
+    getCityWeathers(worldCities, setIsLoading, setCityCardInfo);
   }, []);
 
-  if (isLoading) {
+  if (worldCities.length !== cityCardInfo.length) {
     return (
       <Dimmer active={true} inverted>
         <CustomHead contents={ogpContents} />
