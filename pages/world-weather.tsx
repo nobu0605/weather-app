@@ -28,7 +28,7 @@ export default function WorldWeather(): JSX.Element {
     getCityWeathers(worldCities, setIsLoading, setCityCardInfo);
   }, []);
 
-  if (worldCities.length !== cityCardInfo.length) {
+  if (isLoading && worldCities.length !== cityCardInfo.length) {
     return (
       <Dimmer active={true} inverted>
         <CustomHead contents={ogpContents} />

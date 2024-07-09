@@ -23,8 +23,7 @@ export default function Home(): JSX.Element {
   };
 
   useEffect(() => {
-    const result = getCityWeathers(japanCities, cityCardInfo, setIsLoading);
-    setCityCardInfo(result);
+    getCityWeathers(japanCities, setIsLoading, setCityCardInfo);
   }, []);
 
   if (isLoading) {
