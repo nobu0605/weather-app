@@ -13,7 +13,7 @@ import { worldCitiesInRegion } from "../constants/cities";
 import { worldRegions } from "../constants/regions";
 
 export default function WorldWeather(): JSX.Element {
-  const [cityCardInfo, setCityCardInfo] = useState([]);
+  const [cityCardInfo, setCityCardInfo] = useState<City[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const ogpContents = {
