@@ -7,7 +7,7 @@ import { japanCities, japanCitiesInRegion } from "../constants/cities";
 import { japanRegions } from "../constants/regions";
 import { Dimmer, Loader } from "semantic-ui-react";
 import { City } from "../types/city";
-import { getCityWeather } from "../utils/weather";
+import { getCityWeathers } from "../utils/weather";
 import CityCard from "../components/CityCard";
 import CityList from "../components/CityList";
 
@@ -23,7 +23,7 @@ export default function Home(): JSX.Element {
   };
 
   useEffect(() => {
-    const result = getCityWeather(japanCities, cityCardInfo, setIsLoading);
+    const result = getCityWeathers(japanCities, cityCardInfo, setIsLoading);
     setCityCardInfo(result);
   }, []);
 
