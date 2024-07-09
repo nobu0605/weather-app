@@ -95,7 +95,9 @@ export default function FiveDaysForecast(): JSX.Element {
                 >
                   <p className={styles["cities__region-name"]}>
                     <Link href={`/five-days-forecast?city=${city}`}>
-                      <a className={styles["cities__city-name"]}>{city}</a>
+                      <span className={styles["cities__city-name"]}>
+                        {city}
+                      </span>
                     </Link>
                   </p>
                 </li>

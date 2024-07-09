@@ -20,9 +20,7 @@ export default function Header(props: Props): JSX.Element {
       <CustomHead contents={props.contents} />
       <div className={styles["header-top"]}>
         <Link href="/">
-          <a>
-            <h1 className={styles["header-title"]}>Weather app</h1>
-          </a>
+          <h1 className={styles["header-title"]}>Weather app</h1>
         </Link>
       </div>
       <Menu
