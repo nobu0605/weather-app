@@ -1,11 +1,11 @@
 import axios from "axios";
 import { City } from "../types/city";
 
-export async function getCityWeathers(
+export function getCityWeathers(
   cities: Array<string>,
   cityCardInfo: Array<City>,
   setIsLoading: (isLoading: boolean) => void
-): Promise<Array<City>> {
+): Array<City> {
   cities.forEach(async (city: string, index) => {
     const response: any = await axios
       .post("api/weather-api", {
