@@ -1,3 +1,5 @@
+import CustomHead from "../components/CustomHead";
+import { Dimmer, Loader } from "semantic-ui-react";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../styles/pages/local-weather.module.scss";
@@ -7,7 +9,8 @@ import Footer from "../components/Footer";
 export default function LocalWeather(): JSX.Element {
   const [weather, setWeather] = useState("");
   const [weatherIcon, setWeatherIcon] = useState("");
-  const [currentLocation, setCurrentLocation] = useState("");
+  // const [currentLocation, setCurrentLocation] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let location = {
@@ -20,32 +23,45 @@ export default function LocalWeather(): JSX.Element {
       const { latitude, longitude } = location;
       if (latitude && longitude) {
         getCurrentLocationWeather(longitude, latitude);
+        setIsLoading(false);
       }
-      axios
-        .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.NEXT_PUBLIC_OPEN_GOOGLE_MAP_API_KEY}`
-        )
-        .then((response: any) => {
-          setCurrentLocation(response.data.results[6].formatted_address);
-        })
-        .catch((e) => {
-          console.error(e);
-        });
+      // TODO: implement with free Geocoding API
+      // axios
+      //   .get(
+      //     `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=`
+      //   )
+      //   .then((response: any) => {
+      //     setCurrentLocation(response.data.results[6].formatted_address);
+      //   })
+      //   .catch((e) => {
+      //     console.error(e);
+      //   });
     });
   }, []);
 
-  function getCurrentLocationWeather(longitude, latitude) {
-    axios
-      .post(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_MAP_API_KEY}`
-      )
-      .then((response: any) => {
-        setWeather(response.data.weather[0].description);
-        setWeatherIcon(response.data.weather[0].icon);
+  async function getCurrentLocationWeather(longitude, latitude) {
+    const response: any = await axios
+      .post("api/weather-api", {
+        targetUrl: `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}`,
+        method: "POST",
       })
       .catch((e) => {
         console.error(e);
       });
+
+    setWeather(response.data.weather[0].description);
+    setWeatherIcon(response.data.weather[0].icon);
+  }
+
+  if (isLoading) {
+    return (
+      <Dimmer active={true} inverted>
+        <CustomHead />
+        <Loader inline="centered" size="huge">
+          Loading
+        </Loader>
+      </Dimmer>
+    );
   }
 
   return (
@@ -56,7 +72,7 @@ export default function LocalWeather(): JSX.Element {
       </h1>
       <div className={styles["current-weather"]}>
         <div>
-          <p>Current Location : {currentLocation}</p>
+          {/* <p>Current Location : {currentLocation}</p> */}
           <p>Current Weather : {weather}</p>
           <p>
             Weather Icon :

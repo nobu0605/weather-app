@@ -26,20 +26,27 @@ export default function FiveDaysForecast(): JSX.Element {
   }, []);
 
   async function getFiveDaysWeather() {
-    await axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/forecast?units=metric&q=${cityName}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_MAP_API_KEY}`
-      )
-      .then((response: any) => {
-        setWeatherList(response.data.list);
+    const response = await axios
+      .post("api/weather-api", {
+        targetUrl: `https://api.openweathermap.org/data/2.5/forecast?units=metric&q=${cityName}`,
+        method: "GET",
       })
       .catch((e) => {
         console.error(e);
         errors["notFound"] = true;
         if (e.response.status === 404) {
-          setErrors(errors);
+          return setErrors(errors);
         }
       });
+
+    if (!response) {
+      errors["notFound"] = true;
+      setErrors(errors);
+      setIsLoading(false);
+      return;
+    }
+
+    setWeatherList(response.data.list);
     setIsLoading(false);
   }
 

@@ -6,7 +6,7 @@ import styles from "../styles/pages/world-weather.module.scss";
 import { Dimmer, Loader } from "semantic-ui-react";
 import { City } from "../types/city";
 import { worldCities } from "../constants/cities";
-import { getCityWeather } from "../utils/weather";
+import { getCityWeathers } from "../utils/weather";
 import CityCard from "../components/CityCard";
 import CityList from "../components/CityList";
 import { worldCitiesInRegion } from "../constants/cities";
@@ -25,7 +25,7 @@ export default function WorldWeather(): JSX.Element {
   };
 
   useEffect(() => {
-    const result = getCityWeather(worldCities, cityCardInfo, setIsLoading);
+    const result = getCityWeathers(worldCities, cityCardInfo, setIsLoading);
     setCityCardInfo(result);
   }, []);
 
