@@ -1,0 +1,19 @@
+.local-weather-wrapper {
+  .current-weather {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  img {
+    margin: 0 auto;
+  }
+
+  p {
+    text-align: center;
+    font-size: 25px;
+  }
+}
