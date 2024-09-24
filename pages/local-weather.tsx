@@ -3,8 +3,7 @@ import { Dimmer, Loader } from "semantic-ui-react";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../styles/pages/local-weather.module.scss";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { Layout } from "../components/Layout";
 
 export default function LocalWeather(): JSX.Element {
   const [weather, setWeather] = useState("");
@@ -66,26 +65,26 @@ export default function LocalWeather(): JSX.Element {
 
   return (
     <div className={styles["local-weather-wrapper"]}>
-      <Header />
-      <h1 className={styles["local-weather-wrapper__title"]}>
-        Current Location Weather
-      </h1>
-      <div className={styles["current-weather"]}>
-        <div>
-          {/* <p>Current Location : {currentLocation}</p> */}
-          <p>Current Weather : {weather}</p>
-          <p>
-            Weather Icon :
-            <img
-              src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
-              alt="weather icon"
-              width={40}
-              height={40}
-            />
-          </p>
+      <Layout>
+        <h1 className={styles["local-weather-wrapper__title"]}>
+          Current Location Weather
+        </h1>
+        <div className={styles["current-weather"]}>
+          <div>
+            {/* <p>Current Location : {currentLocation}</p> */}
+            <p>Current Weather : {weather}</p>
+            <p>
+              Weather Icon :
+              <img
+                src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
+                alt="weather icon"
+                width={40}
+                height={40}
+              />
+            </p>
+          </div>
         </div>
-      </div>
-      <Footer />
+      </Layout>
     </div>
   );
 }

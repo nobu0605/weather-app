@@ -21,6 +21,10 @@
       border-bottom: 1px solid #dce5f5;
       width: 60%;
       padding-left: 0px;
+
+      @media screen and (max-width: 768px) {
+        width: 90%;
+      }
     }
 
     &__list {

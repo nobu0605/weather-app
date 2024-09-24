@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
 import CustomHead from "../components/CustomHead";
-import Footer from "../components/Footer";
 import styles from "../styles/pages/index.module.scss";
 import { japanCities, japanCitiesInRegion } from "../constants/cities";
 import { japanRegions } from "../constants/regions";
@@ -10,6 +8,7 @@ import { City } from "../types/city";
 import { getCityWeathers } from "../utils/weather";
 import CityCard from "../components/CityCard";
 import CityList from "../components/CityList";
+import { Layout } from "../components/Layout";
 
 export default function Home(): JSX.Element {
   const [cityCardInfo, setCityCardInfo] = useState([]);
@@ -39,21 +38,21 @@ export default function Home(): JSX.Element {
 
   return (
     <div className={styles["home-wrapper"]}>
-      <Header contents={ogpContents} />
-      <h1 className={styles["home-wrapper__title"]}>
-        Current weather in Japan
-      </h1>
-      <div className={styles["home-wrapper__container"]}>
-        <div className={styles["home-wrapper__japan-map"]}>
-          <ul className={styles["cities"]}>
-            {cityCardInfo.map((city: City, Index: number) => {
-              return <CityCard city={city} key={Index} />;
-            })}
-          </ul>
+      <Layout contents={ogpContents}>
+        <h1 className={styles["home-wrapper__title"]}>
+          Current weather in Japan
+        </h1>
+        <div className={styles["home-wrapper__container"]}>
+          <div className={styles["home-wrapper__japan-map"]}>
+            <ul className={styles["cities"]}>
+              {cityCardInfo.map((city: City, Index: number) => {
+                return <CityCard city={city} key={Index} />;
+              })}
+            </ul>
+          </div>
         </div>
-      </div>
-      <CityList regions={japanRegions} citiesInRegion={japanCitiesInRegion} />
-      <Footer></Footer>
+        <CityList regions={japanRegions} citiesInRegion={japanCitiesInRegion} />
+      </Layout>
     </div>
   );
 }

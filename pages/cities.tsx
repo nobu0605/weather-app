@@ -7,11 +7,10 @@ import React, {
 } from "react";
 import _ from "lodash";
 import { Search } from "semantic-ui-react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import styles from "../styles/pages/cities.module.scss";
 import { cities, citiesForSearch } from "../constants/cities";
 import Link from "next/link";
+import { Layout } from "../components/Layout";
 
 const initialState = {
   loading: false,
@@ -71,42 +70,42 @@ export default function FiveDaysForecast(): JSX.Element {
 
   return (
     <div className={styles["cities-wrapper"]}>
-      <Header />
-      <h1 className={styles["cities-wrapper__title"]}>City List</h1>
-      <div className={styles["search"]}>
-        <Search
-          className={styles["search__input"]}
-          loading={loading}
-          onResultSelect={(e, data) => handleSearchChange(e, data)}
-          onSearchChange={handleSearchChange}
-          results={results}
-          value={value}
-        />
-      </div>
-      <div className={styles["cities"]}>
-        <ul className={styles["cities__lists"]}>
-          <div className={styles["cities__city-section"]}>
-            {allCities.map((city: string, cityIndex: number) => {
-              oddOrEvenNumber = cityIndex % 2 == 0 ? "even" : "odd";
-              return (
-                <li
-                  key={cityIndex}
-                  className={`${styles["cities__list"]} ${styles[oddOrEvenNumber]}`}
-                >
-                  <p className={styles["cities__region-name"]}>
-                    <Link href={`/five-days-forecast?city=${city}`}>
-                      <span className={styles["cities__city-name"]}>
-                        {city}
-                      </span>
-                    </Link>
-                  </p>
-                </li>
-              );
-            })}
-          </div>
-        </ul>
-      </div>
-      <Footer />
+      <Layout>
+        <h1 className={styles["cities-wrapper__title"]}>City List</h1>
+        <div className={styles["search"]}>
+          <Search
+            className={styles["search__input"]}
+            loading={loading}
+            onResultSelect={(e, data) => handleSearchChange(e, data)}
+            onSearchChange={handleSearchChange}
+            results={results}
+            value={value}
+          />
+        </div>
+        <div className={styles["cities"]}>
+          <ul className={styles["cities__lists"]}>
+            <div className={styles["cities__city-section"]}>
+              {allCities.map((city: string, cityIndex: number) => {
+                oddOrEvenNumber = cityIndex % 2 == 0 ? "even" : "odd";
+                return (
+                  <li
+                    key={cityIndex}
+                    className={`${styles["cities__list"]} ${styles[oddOrEvenNumber]}`}
+                  >
+                    <p className={styles["cities__region-name"]}>
+                      <Link href={`/five-days-forecast?city=${city}`}>
+                        <span className={styles["cities__city-name"]}>
+                          {city}
+                        </span>
+                      </Link>
+                    </p>
+                  </li>
+                );
+              })}
+            </div>
+          </ul>
+        </div>
+      </Layout>
     </div>
   );
 }

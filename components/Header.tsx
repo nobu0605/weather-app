@@ -29,16 +29,22 @@ export default function Header(props: Props): JSX.Element {
         style={{ borderRadius: 0, paddingLeft: "20px" }}
       >
         <Link href="/">
-          <Menu.Item name="home" />
+          <Menu.Item name="home" className={styles["header-menu-item"]} />
         </Link>
         <Link href="/local-weather">
-          <Menu.Item name="local weather" />
+          <Menu.Item
+            name="local weather"
+            className={styles["header-menu-item"]}
+          />
         </Link>
         <Link href="/world-weather">
-          <Menu.Item name="world weather" />
+          <Menu.Item
+            name="world weather"
+            className={styles["header-menu-item"]}
+          />
         </Link>
         <Link href="/cities">
-          <Menu.Item name="city list" />
+          <Menu.Item name="city list" className={styles["header-menu-item"]} />
         </Link>
       </Menu>
     </div>
