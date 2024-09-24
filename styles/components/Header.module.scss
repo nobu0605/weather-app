@@ -24,5 +24,11 @@
 
   .header-menu {
     margin-top: 0px;
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
   }
 }

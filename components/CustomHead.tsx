@@ -50,7 +50,6 @@ export default function CustomHead(props: Props): JSX.Element {
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
       <link rel="canonical" href={url} />
-      <meta name="viewport" content="width=1100" />
     </Head>
   );
 }
